@@ -1,37 +1,60 @@
-<p>This application will get the room numbers for all personnel who
-  requested a meal in the given time slot.</p>
 
-<p>Note that the backend API runs on a server with a sleep/wake cycle;
-  if you make a request while it is "asleep" then it will take a few
-  seconds to get a reply</p>
+  <mat-card class="scheduler-card">
+    <mat-card-title>
+      Meal Scheduler
+      <mat-icon
+        #tooltip="matTooltip"
+        matTooltip='This application will get the room numbers for all personnel who requested a meal in the given time slot.
 
-<form [formGroup]="mealDataToGet" (ngSubmit)="getRoomNumbers()">
-  <label for="days">Choose a day: </label>
-  <select name="days" id="days" formControlName="day">
-    <option value="" disabled>-Select-</option>
-    <option value="Sunday">Sunday</option>
-    <option value="Monday">Monday</option>
-    <option value="Tuesday">Tuesday</option>
-    <option value="Wednesday">Wednesday</option>
-    <option value="Thursday">Thursday</option>
-    <option value="Friday">Friday</option>
-    <option value="Saturday">Saturday</option>
-  </select>
-  <br />
-  <label for="mealTimes">Choose a meal time: </label>
-  <select name="mealTimes" id="mealTimes" formControlName="mealTime">
-    <option value="" disabled>-Select-</option>
-    <option value="Breakfast" selected>Breakfast</option>
-    <option value="Lunch">Lunch</option>
-    <option value="Dinner">Dinner</option>
-  </select>
-  <br />
-  <Button type="submit">Get room numbers</Button>
-</form>
-<p>TODO: add a notes section to identify meal preferences (no pork, etc)</p>
-<p>TODO: add styling; there is literaly zero css right now</p>
-<ol>
-  <li *ngFor="let room of roomNumbers">
-    {{ room }}
-  </li>
-</ol>
+        Note that the backend API runs on a server with a sleep/wake cycle; if you make a request while it is "asleep" then it will take a few seconds to get a reply'
+        matTooltipClass="mat-tooltip"
+        matTooltipPosition="right"
+        matTooltipHideDelay="100"
+      >
+        info</mat-icon
+      >
+    </mat-card-title>
+
+    <mat-card-content>
+      <form [formGroup]="mealDataToGet" (ngSubmit)="getRoomNumbers()">
+        <mat-form-field>
+          <mat-label>Choose a day: </mat-label>
+          <mat-select name="days" id="days" formControlName="day">
+            <mat-option value="" disabled>-Select-</mat-option>
+            <mat-option value="Sunday">Sunday</mat-option>
+            <mat-option value="Monday">Monday</mat-option>
+            <mat-option value="Tuesday">Tuesday</mat-option>
+            <mat-option value="Wednesday">Wednesday</mat-option>
+            <mat-option value="Thursday">Thursday</mat-option>
+            <mat-option value="Friday">Friday</mat-option>
+            <mat-option value="Saturday">Saturday</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>Choose a meal time: </mat-label>
+          <mat-select
+            name="mealTimes"
+            id="mealTimes"
+            formControlName="mealTime"
+          >
+            <mat-option value="" disabled>-Select-</mat-option>
+            <mat-option value="Breakfast" selected>Breakfast</mat-option>
+            <mat-option value="Lunch">Lunch</mat-option>
+            <mat-option value="Dinner">Dinner</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br />
+        <Button type="submit">Get room numbers</Button>
+      </form>
+      <p>
+        TODO: add a notes section to identify meal preferences (no pork, etc)
+      </p>
+      <ol>
+        <li *ngFor="let room of roomNumbers">
+          {{ room }}
+        </li>
+      </ol>
+    </mat-card-content>
+  </mat-card>
+

@@ -18,7 +18,7 @@ export class MealSchedulerComponent implements OnInit {
   testEndpoint: string = 'http://localhost:3001';
 
   mealDataToGet = new FormGroup({
-    day: new FormControl(''),
+    day: new FormControl('', Validators.required),
     mealTime: new FormControl('', Validators.required),
   });
 

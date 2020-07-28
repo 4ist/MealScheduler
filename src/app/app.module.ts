@@ -5,6 +5,13 @@ import { AppComponent } from './app.component';
 import { MealSchedulerComponent } from './meal-scheduler/meal-scheduler.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {MatCardModule} from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -14,9 +21,16 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatTooltipModule,
+    MatIconModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: []
 })
 export class AppModule { }

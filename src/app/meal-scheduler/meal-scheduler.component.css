@@ -1,0 +1,8 @@
+.scheduler-card {
+  max-width: 400px;
+  margin: 20px;
+}
+
+::ng-deep .mat-tooltip {
+  white-space: pre-line;
+}
