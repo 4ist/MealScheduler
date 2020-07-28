@@ -1,4 +1,9 @@
-<p>meal-scheduler works!</p>
+<p>This application will get the room numbers for all personnel who
+  requested a meal in the given time slot.</p>
+
+<p>Note that the backend API runs on a server with a sleep/wake cycle;
+  if you make a request while it is "asleep" then it will take a few
+  seconds to get a reply</p>
 
 <form [formGroup]="mealDataToGet" (ngSubmit)="getRoomNumbers()">
   <label for="days">Choose a day: </label>
@@ -23,6 +28,8 @@
   <br />
   <Button type="submit">Get room numbers</Button>
 </form>
+<p>TODO: add a notes section to identify meal preferences (no pork, etc)</p>
+<p>TODO: add styling; there is literaly zero css right now</p>
 <ol>
   <li *ngFor="let room of roomNumbers">
     {{ room }}
