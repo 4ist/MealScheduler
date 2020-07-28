@@ -1,0 +1,30 @@
+<p>meal-scheduler works!</p>
+
+<form [formGroup]="mealDataToGet" (ngSubmit)="getRoomNumbers()">
+  <label for="days">Choose a day: </label>
+  <select name="days" id="days" formControlName="day">
+    <option value="" disabled>-Select-</option>
+    <option value="Sunday">Sunday</option>
+    <option value="Monday">Monday</option>
+    <option value="Tuesday">Tuesday</option>
+    <option value="Wednesday">Wednesday</option>
+    <option value="Thursday">Thursday</option>
+    <option value="Friday">Friday</option>
+    <option value="Saturday">Saturday</option>
+  </select>
+  <br />
+  <label for="mealTimes">Choose a meal time: </label>
+  <select name="mealTimes" id="mealTimes" formControlName="mealTime">
+    <option value="" disabled>-Select-</option>
+    <option value="Breakfast" selected>Breakfast</option>
+    <option value="Lunch">Lunch</option>
+    <option value="Dinner">Dinner</option>
+  </select>
+  <br />
+  <Button type="submit">Get room numbers</Button>
+</form>
+<ol>
+  <li *ngFor="let room of roomNumbers">
+    {{ room }}
+  </li>
+</ol>
