@@ -34,7 +34,6 @@ export class MealSchedulerComponent implements OnInit {
 
   callForRoomNumbers(day: string, mealTime: string) {
     const route = this.liveEndpoint + `/api/${day}/${mealTime}`;
-    //var responseOptions
 
     this.http
       .get(route) //text
