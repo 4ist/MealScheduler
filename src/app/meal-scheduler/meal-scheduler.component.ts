@@ -13,6 +13,7 @@ export class MealSchedulerComponent implements OnInit {
   ngOnInit(): void {}
 
   roomNumbers;
+  loading = false;
   //TODO add a config setting to make these easier to change
   liveEndpoint: string = 'https://sbolc-006-meal-scheduler.herokuapp.com';
   testEndpoint: string = 'http://localhost:3001';
@@ -23,6 +24,9 @@ export class MealSchedulerComponent implements OnInit {
   });
 
   getRoomNumbers(): void {
+    this.loading = true;
+    //document.getElementById('matSpinner').hidden = false;
+
     console.log('get room numbers');
     console.log('this.mealDataToGet.value:', this.mealDataToGet.value);
 
@@ -39,6 +43,10 @@ export class MealSchedulerComponent implements OnInit {
       .get(route) //text
       .subscribe((data) => {
         this.roomNumbers = data;
+        //document.getElementById('matSpinner').hidden = true;
+    this.loading = false;
+
+
         console.log('Async (I think) room numbers API call');
         //console.log(this.roomNumbers);
       });
