@@ -81,6 +81,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_select__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/select */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/select.js");
 /* harmony import */ var _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/tooltip */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/tooltip.js");
 /* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/icon */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/icon.js");
+/* harmony import */ var _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/progress-spinner */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/progress-spinner.js");
+
 
 
 
@@ -106,7 +108,8 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
             _angular_material_form_field__WEBPACK_IMPORTED_MODULE_8__["MatFormFieldModule"],
             _angular_material_select__WEBPACK_IMPORTED_MODULE_9__["MatSelectModule"],
             _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_10__["MatTooltipModule"],
-            _angular_material_icon__WEBPACK_IMPORTED_MODULE_11__["MatIconModule"]
+            _angular_material_icon__WEBPACK_IMPORTED_MODULE_11__["MatIconModule"],
+            _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_12__["MatProgressSpinnerModule"]
         ]] });
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"],
         _meal_scheduler_meal_scheduler_component__WEBPACK_IMPORTED_MODULE_3__["MealSchedulerComponent"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -117,7 +120,8 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
         _angular_material_form_field__WEBPACK_IMPORTED_MODULE_8__["MatFormFieldModule"],
         _angular_material_select__WEBPACK_IMPORTED_MODULE_9__["MatSelectModule"],
         _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_10__["MatTooltipModule"],
-        _angular_material_icon__WEBPACK_IMPORTED_MODULE_11__["MatIconModule"]] }); })();
+        _angular_material_icon__WEBPACK_IMPORTED_MODULE_11__["MatIconModule"],
+        _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_12__["MatProgressSpinnerModule"]] }); })();
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](AppModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"],
         args: [{
@@ -134,7 +138,8 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
                     _angular_material_form_field__WEBPACK_IMPORTED_MODULE_8__["MatFormFieldModule"],
                     _angular_material_select__WEBPACK_IMPORTED_MODULE_9__["MatSelectModule"],
                     _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_10__["MatTooltipModule"],
-                    _angular_material_icon__WEBPACK_IMPORTED_MODULE_11__["MatIconModule"]
+                    _angular_material_icon__WEBPACK_IMPORTED_MODULE_11__["MatIconModule"],
+                    _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_12__["MatProgressSpinnerModule"]
                 ],
                 providers: [],
                 bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]],
@@ -165,6 +170,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_select__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/select */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/select.js");
 /* harmony import */ var _angular_material_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/core */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/progress-spinner */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/progress-spinner.js");
 
 
 
@@ -177,18 +183,23 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function MealSchedulerComponent_li_47_Template(rf, ctx) { if (rf & 1) {
+
+function MealSchedulerComponent_mat_spinner_46_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "mat-spinner", 20);
+} }
+function MealSchedulerComponent_li_48_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "li");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
-    const room_r2 = ctx.$implicit;
+    const room_r3 = ctx.$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", room_r2, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", room_r3, " ");
 } }
 class MealSchedulerComponent {
     constructor(http) {
         this.http = http;
+        this.loading = false;
         //TODO add a config setting to make these easier to change
         this.liveEndpoint = 'https://sbolc-006-meal-scheduler.herokuapp.com';
         this.testEndpoint = 'http://localhost:3001';
@@ -199,6 +210,8 @@ class MealSchedulerComponent {
     }
     ngOnInit() { }
     getRoomNumbers() {
+        this.loading = true;
+        //document.getElementById('matSpinner').hidden = false;
         console.log('get room numbers');
         console.log('this.mealDataToGet.value:', this.mealDataToGet.value);
         console.log('TODO: select params from radio button and dropdown values');
@@ -208,23 +221,24 @@ class MealSchedulerComponent {
     }
     callForRoomNumbers(day, mealTime) {
         const route = this.liveEndpoint + `/api/${day}/${mealTime}`;
-        //var responseOptions
         this.http
             .get(route) //text
             .subscribe((data) => {
             this.roomNumbers = data;
+            //document.getElementById('matSpinner').hidden = true;
+            this.loading = false;
             console.log('Async (I think) room numbers API call');
             //console.log(this.roomNumbers);
         });
     }
 }
 MealSchedulerComponent.ɵfac = function MealSchedulerComponent_Factory(t) { return new (t || MealSchedulerComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"])); };
-MealSchedulerComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: MealSchedulerComponent, selectors: [["app-meal-scheduler"]], decls: 48, vars: 2, consts: [[1, "scheduler-card"], ["matTooltip", "This application will get the room numbers for all personnel who requested a meal in the given time slot.\n\n        Note that the backend API runs on a server with a sleep/wake cycle; if you make a request while it is \"asleep\" then it will take a few seconds to get a reply", "matTooltipClass", "mat-tooltip", "matTooltipPosition", "right", "matTooltipHideDelay", "100"], ["tooltip", "matTooltip"], [3, "formGroup", "ngSubmit"], ["name", "days", "id", "days", "formControlName", "day"], ["value", "", "disabled", ""], ["value", "Sunday"], ["value", "Monday"], ["value", "Tuesday"], ["value", "Wednesday"], ["value", "Thursday"], ["value", "Friday"], ["value", "Saturday"], ["name", "mealTimes", "id", "mealTimes", "formControlName", "mealTime"], ["value", "Breakfast", "selected", ""], ["value", "Lunch"], ["value", "Dinner"], ["type", "submit"], [4, "ngFor", "ngForOf"]], template: function MealSchedulerComponent_Template(rf, ctx) { if (rf & 1) {
+MealSchedulerComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: MealSchedulerComponent, selectors: [["app-meal-scheduler"]], decls: 49, vars: 3, consts: [[1, "scheduler-card"], ["matTooltip", "This application will get the room numbers for all personnel who requested a meal in the given time slot.\n\n        Note that the backend API runs on a server with a sleep/wake cycle; if you make a request while it is \"asleep\" then it will take a few seconds to get a reply", "matTooltipClass", "mat-tooltip", "matTooltipPosition", "right", "matTooltipHideDelay", "100"], ["tooltip", "matTooltip"], [3, "formGroup", "ngSubmit"], ["name", "days", "id", "days", "formControlName", "day"], ["value", "", "disabled", ""], ["value", "Sunday"], ["value", "Monday"], ["value", "Tuesday"], ["value", "Wednesday"], ["value", "Thursday"], ["value", "Friday"], ["value", "Saturday"], ["name", "mealTimes", "id", "mealTimes", "formControlName", "mealTime"], ["value", "Breakfast", "selected", ""], ["value", "Lunch"], ["value", "Dinner"], ["type", "submit"], ["id", "matSpinner", 4, "ngIf"], [4, "ngFor", "ngForOf"], ["id", "matSpinner"]], template: function MealSchedulerComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-card", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "mat-card-title");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, " Meal Scheduler ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "mat-icon", 1, 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5, " info");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5, " info ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "mat-card-content");
@@ -289,17 +303,20 @@ MealSchedulerComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵd
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](44, "p");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](45, " TODO: add a notes section to identify meal preferences (no pork, etc) ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](46, "ol");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](47, MealSchedulerComponent_li_47_Template, 2, 1, "li", 18);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](46, MealSchedulerComponent_mat_spinner_46_Template, 1, 0, "mat-spinner", 18);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](47, "ol");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](48, MealSchedulerComponent_li_48_Template, 2, 1, "li", 19);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](7);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("formGroup", ctx.mealDataToGet);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](40);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](39);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.loading == true);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.roomNumbers);
-    } }, directives: [_angular_material_card__WEBPACK_IMPORTED_MODULE_3__["MatCard"], _angular_material_card__WEBPACK_IMPORTED_MODULE_3__["MatCardTitle"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_4__["MatIcon"], _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_5__["MatTooltip"], _angular_material_card__WEBPACK_IMPORTED_MODULE_3__["MatCardContent"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroupDirective"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_6__["MatFormField"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_6__["MatLabel"], _angular_material_select__WEBPACK_IMPORTED_MODULE_7__["MatSelect"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControlName"], _angular_material_core__WEBPACK_IMPORTED_MODULE_8__["MatOption"], _angular_common__WEBPACK_IMPORTED_MODULE_9__["NgForOf"]], styles: [".scheduler-card[_ngcontent-%COMP%] {\r\n  max-width: 400px;\r\n  margin: 20px;\r\n}\r\n\r\n  .mat-tooltip {\r\n  white-space: pre-line;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVhbC1zY2hlZHVsZXIvbWVhbC1zY2hlZHVsZXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGdCQUFnQjtFQUNoQixZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxxQkFBcUI7QUFDdkIiLCJmaWxlIjoic3JjL2FwcC9tZWFsLXNjaGVkdWxlci9tZWFsLXNjaGVkdWxlci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnNjaGVkdWxlci1jYXJkIHtcclxuICBtYXgtd2lkdGg6IDQwMHB4O1xyXG4gIG1hcmdpbjogMjBweDtcclxufVxyXG5cclxuOjpuZy1kZWVwIC5tYXQtdG9vbHRpcCB7XHJcbiAgd2hpdGUtc3BhY2U6IHByZS1saW5lO1xyXG59XHJcbiJdfQ== */"] });
+    } }, directives: [_angular_material_card__WEBPACK_IMPORTED_MODULE_3__["MatCard"], _angular_material_card__WEBPACK_IMPORTED_MODULE_3__["MatCardTitle"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_4__["MatIcon"], _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_5__["MatTooltip"], _angular_material_card__WEBPACK_IMPORTED_MODULE_3__["MatCardContent"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroupDirective"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_6__["MatFormField"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_6__["MatLabel"], _angular_material_select__WEBPACK_IMPORTED_MODULE_7__["MatSelect"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControlName"], _angular_material_core__WEBPACK_IMPORTED_MODULE_8__["MatOption"], _angular_common__WEBPACK_IMPORTED_MODULE_9__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_9__["NgForOf"], _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_10__["MatSpinner"]], styles: [".scheduler-card[_ngcontent-%COMP%] {\r\n  max-width: 400px;\r\n  margin: 20px;\r\n}\r\n\r\n  .mat-tooltip {\r\n  white-space: pre-line;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVhbC1zY2hlZHVsZXIvbWVhbC1zY2hlZHVsZXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGdCQUFnQjtFQUNoQixZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxxQkFBcUI7QUFDdkIiLCJmaWxlIjoic3JjL2FwcC9tZWFsLXNjaGVkdWxlci9tZWFsLXNjaGVkdWxlci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnNjaGVkdWxlci1jYXJkIHtcclxuICBtYXgtd2lkdGg6IDQwMHB4O1xyXG4gIG1hcmdpbjogMjBweDtcclxufVxyXG5cclxuOjpuZy1kZWVwIC5tYXQtdG9vbHRpcCB7XHJcbiAgd2hpdGUtc3BhY2U6IHByZS1saW5lO1xyXG59XHJcbiJdfQ== */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MealSchedulerComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
