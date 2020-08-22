@@ -40,9 +40,6 @@
       <br />
       <Button type="submit">Get room numbers</Button>
     </form>
-    <p>
-      TODO: add a notes section to identify meal preferences (no pork, etc)
-    </p>
     <mat-spinner id="matSpinner" *ngIf="loading == true"> </mat-spinner>
     <ol>
       <li *ngFor="let room of roomNumbers">
